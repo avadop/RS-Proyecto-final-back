@@ -3,10 +3,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [UsersModule,
-    MongooseModule.forRoot('mongodb+srv://user:VhoOxyYV7fQ1KQXV@cluster0.ca8v1.mongodb.net/Ribera-salud?retryWrites=true&w=majority')],
+  imports: [ConfigModule.forRoot(),
+    UsersModule,
+    MongooseModule.forRoot(`mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@${process.env.HOST}?retryWrites=true&w=majority`)],
   controllers: [AppController],
   providers: [AppService],
 })
