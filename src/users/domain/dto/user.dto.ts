@@ -1,18 +1,30 @@
 import { Insurance } from "../interfaces/insurance.interface";
 import { Address } from "../interfaces/address.interface";
+import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 
 export class CreateUserDTO{
-  readonly nhc?: string; 
-  readonly insuranceList?: Insurance[];
+  @ApiPropertyOptional()
+  nhc?: string; 
+  @ApiPropertyOptional({ type: 'Insurance' })
+  insuranceList?: Insurance[];
 
-  readonly membershipNumber?: string;
-  readonly professionalType?: string;
+  @ApiPropertyOptional()
+  membershipNumber?: string;
+  @ApiPropertyOptional()
+  professionalType?: string;
 
-  readonly name: string;
-  readonly firstSurname: string; 
-  readonly secondSurname: string;
-  readonly gender?: string;
-  readonly birthDate?: string;
-  readonly idDocument?: string;
-  readonly address?: Address;
+  @ApiProperty()
+  name: string;
+  @ApiProperty()
+  firstSurname: string; 
+  @ApiProperty()
+  secondSurname: string;
+  @ApiPropertyOptional()
+  gender?: string;
+  @ApiPropertyOptional()
+  birthDate?: string;
+  @ApiPropertyOptional()
+  idDocument?: string;
+  @ApiPropertyOptional({ type: 'Address' })
+  address?: Address;
 }
