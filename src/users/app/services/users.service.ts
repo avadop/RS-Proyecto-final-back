@@ -36,6 +36,6 @@ export class UsersService {
   }
 
   async updateUser(userID: string, createUserDTO: CreateUserDTO): Promise<User> {
-    return await this.userModel.findByIdAndUpdate(userID, createUserDTO, {new: true});
+    return await this.userModel.findByIdAndUpdate(userID, createUserDTO, {new: true, useFindAndModify: false});
   }
 }

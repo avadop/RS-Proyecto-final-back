@@ -19,7 +19,7 @@ export class UsersController {
   }
 
   @Get('/:id')
-  async getUser(@Param('id') id: string) {
+  async getUser(@Param('id') id: string): Promise<User> {
     try {
       return this.userService.getUser(id);
     } catch (Exception) {
@@ -28,7 +28,7 @@ export class UsersController {
   }
 
   @Post('/new')
-  async createUser(@Res() response, @Body() createUserDTO: CreateUserDTO) {
+  async createUser(@Res() response, @Body() createUserDTO: CreateUserDTO){
     try {
       const user = await this.userService.createUser(createUserDTO);
 
@@ -43,7 +43,7 @@ export class UsersController {
   }
 
   @Delete('/:id')
-  deleteUser(@Param('id') id: string) {
+  deleteUser(@Param('id') id: string): void {
     try {
       this.userService.deleteUser(id);
     } catch (Exception) {
@@ -52,10 +52,11 @@ export class UsersController {
   }
 
   @Put('/:id')
-  async updateUser(@Param('id') id: string, @Body() createUserDTO: CreateUserDTO, @Res() response) {
+  async updateUser(@Param('id') id: string, @Body() createUserDTO: CreateUserDTO, @Res() response): Promise<User> {
     try {
       const updatedUser = await this.userService.updateUser(id, createUserDTO);
-      return response.status(HttpStatus.OK).json(updatedUser)
+      response.status(HttpStatus.OK).json(updatedUser)
+      return updatedUser;
 
     } catch (Exception) {
       throw new HttpException("Exception", HttpStatus.CONFLICT);
