@@ -3,6 +3,9 @@ Este repositorio contiene el back-end del proyecto final realizado para el Bootc
 
 Se trata de una aplicación pensada para el sector sanitario con la que se pueden gestionar una serie de usuarios, ya sean pacientes o profesionales del sector. Incluye las operaciones básicas CRUD más el añadido de poder borrar todos los médicos.
 
+### Front-end
+El front-end correspondiente a la aplicación se encuentra en: https://github.com/avadop/RS-Proyecto-final-front
+
 ## Tecnologías
 El proyecto ha sido realizado con [NestJs](https://github.com/nestjs/nest) y con [mongoDB](https://www.mongodb.com/es) como base de datos.
 
