@@ -1,8 +1,8 @@
 import { Controller, Get, Post, Put, Delete, Res, HttpStatus, Body, HttpException, Param, NotFoundException } from '@nestjs/common';
 
-import { CreateUserDTO } from '../domain/dto/user.dto'
-import { UsersService } from '../app/services/users.service'
-import { User } from '../domain/models/user.interface';
+import { CreateUserDTO } from './domain/dto/user.dto'
+import { UsersService } from './users.service'
+import { User } from './domain/models/user.interface';
 
 @Controller('users')
 export class UsersController {
@@ -10,12 +10,8 @@ export class UsersController {
   constructor(private userService: UsersService) { }
 
   @Get('/')
-  async getAllUsers(@Res() response) {
-    const users = await this.userService.getAllUsers();
-
-    response.status(HttpStatus.OK).json({
-      users
-    })
+  async getAllUsers(): Promise<User[]> {
+    return await this.userService.getAllUsers();
   }
 
   @Get('/:id')

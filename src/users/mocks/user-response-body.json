@@ -1,0 +1,27 @@
+{
+  "_id": "5f20756ec56d840a9cd83580",
+  "nhc": "01111118",
+  "name": "Sergio",
+  "firstSurname": "Gómez",
+  "secondSurname": "Cortés",
+  "gender": "Otro",
+  "idDocument": "1236548Z",
+  "address": {
+      "_id": "5f20756ec56d840a9cd83581",
+      "street": "de Alcorcón",
+      "number": "17",
+      "door": "8 A",
+      "postalCode": "28023",
+      "city": "Madrid"
+  },
+  "insuranceList": [
+      {
+          "_id": "5f20756ec56d840a9cd83582",
+          "cardNumber": "2157448562",
+          "name": "Seguridad social",
+          "insuranceType": "Salud"
+      }
+  ],
+  "__v": 0,
+  "birthDate": "1995-11-01T23:00:00.000Z"
+}
